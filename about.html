@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - João Vitor Suporte Técnico</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/favicon/cpu.svg" type="image/x-icon">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --accent-color: #f97316;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar enhancements */
+        .navbar {
+            transition: all 0.4s ease;
+            padding: 1rem 0;
+            background: rgba(30, 41, 59, 0.95) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Page header enhancements */
+        .page-header {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.85)), url('https://placeholder.svg?height=600&width=1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="0.1" d="M0,192L48,165.3C96,139,192,85,288,80C384,75,480,117,576,149.3C672,181,768,203,864,202.7C960,203,1056,181,1152,160C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            opacity: 0.4;
+        }
+
+        /* Section enhancements */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f8fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-light);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(100px, -150px);
+        }
+
+        .section:nth-child(odd)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: var(--accent-color);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(-100px, 100px);
+        }
+
+        /* Button enhancements */
+        .btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+        }
+
+        /* Image enhancements */
+        .img-fluid {
+            transition: all 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(249, 115, 22, 0.2));
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+
+        .img-wrapper:hover::before {
+            opacity: 1;
+        }
+
+        .img-wrapper:hover .img-fluid {
+            transform: scale(1.05);
+        }
+
+        /* Timeline enhancements */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Skill bar enhancements */
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            position: relative;
+            transition: width 1.5s ease;
+        }
+
+        /* CTA Section enhancement */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            opacity: 0.1;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: white;
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            opacity: 0.1;
+        }
+
+        /* Footer enhancements */
+        footer {
+            background-color: var(--dark-color);
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Float animation for cards */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Pulse animation for accent elements */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Curved shapes */
+        .curve-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .curve-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+
+        .curve-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .curve-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .floating-1 {
+            top: 20%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent-color);
+            border-radius: 20px;
+            transform: rotate(45deg);
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .floating-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .floating-3 {
+            top: 50%;
+            right: 10%;
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: 10px;
+            transform: rotate(20deg);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Certificate card */
+        .certificate-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-cpu text-accent-color me-2"></i>
+                João Vitor Suporte Técnico
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="container text-center" data-aos="fade-up">
+            <h1 class="display-4 fw-bold mb-3">Sobre Mim</h1>
+            <p class="lead fs-4 mb-4">Conheça minha trajetória e experiência em TI</p>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="img-wrapper rounded-circle">
+                        <img src="./assets/about/undraw_young-man-avatar_wgbd.svg" alt="João vitor" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <h2 class="fw-bold mb-4 position-relative">
+                        <span class="position-relative">
+                            Quem Sou Eu
+                            <span class="position-absolute w-50 bg-warning"
+                                style="height: 4px; bottom: -8px; left: 0; border-radius: 2px;"></span>
+                        </span>
+                    </h2>
+                    <p class="lead text-primary mb-4">Olá, sou João Vitor, técnico e analista de suporte com mais de 10 anos de
+                        experiência em TI.</p>
+                    <p class="mb-4">Sou apaixonado por tecnologia e por encontrar soluções que realmente fazem a
+                        diferença para as empresas. Minha jornada na área de TI começou há mais de uma década, quando
+                        percebi que poderia unir minha paixão por tecnologia com a satisfação de ajudar empresas a
+                        resolverem seus problemas.</p>
+                    <p class="mb-4">Ao longo dos anos, trabalhei com empresas de diversos segmentos e portes, o que me
+                        proporcionou uma visão ampla dos desafios e necessidades específicas de cada setor. Essa
+                        experiência diversificada me permite oferecer soluções personalizadas e eficientes para cada
+                        cliente.</p>
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h4 class="h6 fw-bold mb-1">Formação Técnica</h4>
+                                    <p class="mb-0 small">Graduado em Sistemas de Informação</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h4 class="h6 fw-bold mb-1">Certificações</h4>
+                                    <p class="mb-0 small">Microsoft, Cisco, CompTIA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h4 class="h6 fw-bold mb-1">Experiência</h4>
+                                    <p class="mb-0 small">Mais de 10 anos no mercado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h4 class="h6 fw-bold mb-1">Atendimento</h4>
+                                    <p class="mb-0 small">Mais de 200 clientes satisfeitos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section bg-light position-relative">
+        <div class="curve-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#ffffff"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold mb-3">Certificações e Formação</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">Investimento contínuo em conhecimento e
+                    aprimoramento</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="certificate-card p-4 text-center">
+                   <!-- <img src="https://placeholder.svg?height=60&width=60" alt="Microsoft" class="certificate-logo"> --> 
+                        <h3 class="h5 fw-bold mb-2">Microsoft Certified Solutions Expert (MCSE)</h3>
+                        <p class="mb-3 text-muted">Certificação em infraestrutura de servidores Windows, Active
+                            Directory e serviços de rede.</p>
+                        <span class="badge bg-primary">2019</span>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="certificate-card p-4 text-center">
+                   <!-- <img src="https://placeholder.svg?height=60&width=60" alt="Cisco" class="certificate-logo"> -->
+                        <h3 class="h5 fw-bold mb-2">Cisco Certified Network Associate (CCNA)</h3>
+                        <p class="mb-3 text-muted">Certificação em redes, roteamento, switching e soluções de
+                            infraestrutura Cisco.</p>
+                        <span class="badge bg-primary">2018</span>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="certificate-card p-4 text-center">
+                   <!-- <img src="https://placeholder.svg?height=60&width=60" alt="CompTIA" class="certificate-logo"> -->
+                        <h3 class="h5 fw-bold mb-2">CompTIA Security+</h3>
+                        <p class="mb-3 text-muted">Certificação em segurança da informação, criptografia e gestão de
+                            riscos.</p>
+                        <span class="badge bg-primary">2020</span>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="certificate-card p-4 text-center">
+                   <!-- <img src="https://placeholder.svg?height=60&width=60" alt="Universidade" class="certificate-logo"> -->
+                        <h3 class="h5 fw-bold mb-2">Bacharelado em Sistemas de Informação</h3>
+                        <p class="mb-3 text-muted">Universidade XYZ - Formação completa em sistemas de informação com
+                            foco em infraestrutura e redes.</p>
+                        <span class="badge bg-primary">2010 - 2014</span>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="certificate-card p-4 text-center">
+                   <!-- <img src="https://placeholder.svg?height=60&width=60" alt="AWS" class="certificate-logo"> -->
+                        <h3 class="h5 fw-bold mb-2">AWS Certified Solutions Architect</h3>
+                        <p class="mb-3 text-muted">Certificação em arquitetura de soluções na nuvem AWS, incluindo
+                            serviços de computação, armazenamento e redes.</p>
+                        <span class="badge bg-primary">2021</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="curve-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section py-5 text-white">
+        <div class="container text-center">
+            <div data-aos="fade-up">
+                <h2 class="mb-4 fw-bold">Pronto para trabalharmos juntos?</h2>
+                <p class="lead mb-4 fs-4">Entre em contato para discutirmos como posso ajudar sua empresa com soluções
+                    de TI personalizadas.</p>
+                <a href="contact.html" class="btn btn-light btn-lg pulse">
+                    <i class="bi bi-calendar-check me-2"></i>Agendar uma Consulta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-cpu text-primary me-2"></i>João Vitor Suporte Técnico
+                    </h5>
+                    <p class="mb-3">Soluções em TI para empresas de todos os portes. Atendimento personalizado e
+                        eficiente.</p>
+                    <a href="services.html" class="btn btn-outline-light btn-sm">Conheça nossos serviços</a>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Contato</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-telephone-fill me-2 text-primary"></i>(11) 99999-9999</li>
+                        <li class="mb-3"><i class="bi bi-envelope-fill me-2 text-primary"></i>contato@joaovitorsuporte.com.br
+                        </li>
+                        <li class="mb-3"><i class="bi bi-geo-alt-fill me-2 text-primary"></i>São Paulo, SP</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">Redes Sociais</h5>
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin text-white"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-whatsapp text-white"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram text-white"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook text-white"></i></a>
+                    </div>
+                    <p class="mb-0 mt-3"><i class="bi bi-clock-fill me-2 text-primary"></i>Seg - Sex: 8h às 18h</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 João Vitor Suporte Técnico. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.padding = '0.5rem 0';
+                navbar.style.backgroundColor = 'rgba(30, 41, 59, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1rem 0';
+                navbar.style.backgroundColor = 'rgba(30, 41, 59, 0.95)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate skill bars
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.querySelectorAll('.skill-progress').forEach(progress => {
+                    const width = progress.getAttribute('data-width');
+                    progress.style.width = width;
+                });
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
